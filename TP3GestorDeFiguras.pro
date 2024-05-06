@@ -13,6 +13,9 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    Circulo.h \
+    Cuadrado.h \
+    Triangulo.h \
     mainwindow.h
 
 FORMS += \
