@@ -9,13 +9,25 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Circulo.cpp \
+    GestorDeFiguras.cpp \
+    Interpreter.cpp \
+    Rectangulo.cpp \
+    Triangulo.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Circulo.h \
-    Cuadrado.h \
+    CirculoFactory.h \
+    Figura.h \
+    FiguraFactory.h \
+    GestorDeFiguras.h \
+    Interpreter.h \
+    Rectangulo.h \
+    RectanguloFactory.h \
     Triangulo.h \
+    TrianguloFactory.h \
     mainwindow.h
 
 FORMS += \
