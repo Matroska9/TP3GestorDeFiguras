@@ -12,28 +12,25 @@ using CommandResult = std::tuple<QString, QString, QString>;
 
 class Interpreter {
 private:
-    CirculoFactory *circuloFactory;
-    RectanguloFactory *rectanguloFactory;
-    TrianguloFactory *trianguloFactory;
+    QList<int> *parametros;
+    QList<FiguraFactory*> *figuraFactories;
     GestorDeFiguras *gestorDeFiguras;
 
     int commandIndex = 0;
-    QList<int> parametros;
+
+    void limpiarParametros();
 
 public:
     Interpreter(
-        CirculoFactory* cf,
-        RectanguloFactory* rf,
-        TrianguloFactory* tf,
+        QList<FiguraFactory*> *ff,
         GestorDeFiguras* gdf
         );
 
-    void crearCirculo(int centro_x, int centro_y, int radio);
-    void crearRectangulo(int topLeft_x, int topLeft_y, int bottomRight_x, int bottomRight_y);
-    void crearTriangulo(int c1_x, int c1_y, int c2_x, int c2_y, int c3_x, int c3_y);
+    void crearFigura(int figuraType);
 
     void imprimirListaFiguras();
     void dibujarFiguras(QGraphicsScene& scene);
+    void dibujarFigura(int index, QGraphicsScene& scene);
 
     void eliminarFigura(int indice);
     void trasladarFiguraX(int indice, int x);
@@ -41,7 +38,6 @@ public:
 
     CommandResult procesarComando(int tipoFigura, int coorX, int coorY);
 
-    // Otros métodos para interpretar acciones del usuario
 };
 
 #endif // INTERPRETER_H

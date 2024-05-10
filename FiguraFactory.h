@@ -5,7 +5,7 @@
 
 class FiguraFactory {
 public:
-    virtual Figura* crearFigura(const QList<int>& parametros) = 0;
+    virtual Figura* crearFigura(QList<int>& parametros) = 0;
 };
 
 #endif // FIGURAFACTORY_H

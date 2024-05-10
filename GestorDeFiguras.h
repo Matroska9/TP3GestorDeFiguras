@@ -1,12 +1,14 @@
 #ifndef GESTORDEFIGURAS_H
 #define GESTORDEFIGURAS_H
 
-#include "Figura.h"
-#include <QDebug>
+#include <QObject>
 #include <QList>
-#include <QGraphicsScene>
+#include <QString>
+#include <QDebug>
+#include "Figura.h"
 
-class GestorDeFiguras {
+class GestorDeFiguras : public QObject {
+    Q_OBJECT
 public:
     GestorDeFiguras();
     ~GestorDeFiguras();
@@ -16,12 +18,17 @@ public:
 
     void mostrarFiguras();
     void dibujarFiguras(QGraphicsScene& scene);
+    void dibujarFigura(int index, QGraphicsScene& scene);
 
     void trasladarFiguraX(int index, int x);
     void trasladarFiguraY(int index, int y);
 
+signals:
+    void figurasActualizada(int index, const QString& descripcion);
+
 private:
     QList<Figura*> figuras;
+
 };
 
 #endif // GESTORDEFIGURAS_H

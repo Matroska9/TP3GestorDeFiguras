@@ -7,7 +7,7 @@
 class TrianguloFactory : public FiguraFactory {
 public:
     virtual ~TrianguloFactory() {}
-    Figura* crearFigura(const QList<int>& parametros) override {
+    Figura* crearFigura(QList<int>& parametros) override {
         if (parametros.size() != 6)
             return nullptr;
         return new Triangulo(

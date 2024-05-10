@@ -7,6 +7,7 @@ class Triangulo : public Figura {
 public:
     Triangulo(const QPoint& c1, const QPoint& c2, const QPoint& c3);
     void mostrar() const override;
+    QString describir() const override;
     void dibujar(QGraphicsScene& scene) const override;
     void trasladarX(int x) override;
     void trasladarY(int y) override;
